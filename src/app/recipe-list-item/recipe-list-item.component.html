@@ -1,0 +1,16 @@
+<img class="ui tiny image"
+*ngIf="recipe.images && recipe.images[0] && recipe.images[0].url"
+[src]="recipe.images[0].url">
+<div class="content">
+  <div class="header">{{recipe.title}}</div>
+  <div *ngIf="recipe.subtitle" class="description">{{recipe.subtitle}}</div>
+  <div class="metadata">
+    <span *ngFor="let ingredient of recipe.ingredients;last as i">
+      Ingredients: {{ingredient}}<span *ngIf="!i">,</span>
+    </span>
+    <br>
+    <span *ngFor="let instruction of recipe.instructions;last as i">
+      Instructions: {{instruction}}<span *ngIf="!i">,</span>
+    </span>
+  </div>
+</div>

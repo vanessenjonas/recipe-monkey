@@ -1,0 +1,7 @@
+<div class="ui middle aligned selection divided list">
+  <rm-recipe-list-item class="item"
+   *ngFor="let r of recipes"
+   [recipe]="r"
+    [routerLink]="r.id">"></rm-recipe-list-item>
+</div>
+

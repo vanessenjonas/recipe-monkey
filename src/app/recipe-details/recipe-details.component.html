@@ -1,0 +1,31 @@
+<div *ngIf="recipe">
+  <h1>{{recipe.title}}</h1>
+  <H3 *ngIf="recipe.subtitle">{{recipe.subtitle}}</H3>
+  <div class="ui divider"></div>
+  <div class="ui grid">
+    <div class="four wide column">
+      <h4>Ingredients</h4>
+      <ng-container *ngFor="let ingredient of recipe.ingredients">
+        {{ingredient}}<br>
+      </ng-container>
+    </div>
+    <div class="four wide column">
+      <h4>ID</h4>
+      {{recipe.id}}
+    </div>
+    <div class="four wide column">
+      <h4>Published</h4>
+      {{recipe.published}}
+    </div>
+    <div class="four wider column">
+      <h4>Yield</h4>
+      <i class="yellow star icon"
+         *ngFor="let y of getRating(recipe.recipeYield)"></i>
+    </div>
+  </div>
+  <div class="ui small images">
+    <img *ngFor="let image of recipe.images"
+         [src]="image.url">
+  </div>
+  <a routerLink="/recipes" class="ui red button">Back to recipes</a>
+</div>
